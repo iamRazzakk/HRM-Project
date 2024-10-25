@@ -1,17 +1,18 @@
+import { Input } from "antd";
 import { NavLink } from "react-router-dom";
+import { SearchOutlined } from "@ant-design/icons";
 import avater from "../../assets/avater.jpg";
-import SearchBar from "./SearchBar";
 const Navbar = () => {
   return (
     <nav className="bg-white text-gray-950 p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Left Side: Logo */}
         <div className="flex items-center">
-          <span className="font-bold text-lg">Plato</span>
+          <span className="font-bold text-2xl">Plato</span>
         </div>
 
         {/* Middle Side: Navigation Links */}
-        <div className="hidden md:flex space-x-8">
+        <div className=" md:flex space-x-8">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -50,7 +51,12 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {/* Search Bar */}
           <div className="">
-            <SearchBar />
+            <Input
+              size="large"
+              placeholder="Search Anything"
+              style={{ width: "100%", backgroundColor: "transparent" }}
+              prefix={<SearchOutlined style={{ color: "rgba(0,0,0,0.45)" }} />}
+            />
           </div>
 
           {/* User Profile */}

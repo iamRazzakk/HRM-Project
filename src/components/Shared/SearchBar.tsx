@@ -5,7 +5,7 @@ const SearchBar: React.FC = () => (
   <Input
     size="large"
     placeholder="Search by ID, Name"
-    style={{ width: "100%", backgroundColor: "transparent" }}
+    style={{ width: "60%", backgroundColor: "transparent" }}
     prefix={<SearchOutlined style={{ color: "rgba(0,0,0,0.45)" }} />}
   />
 );
