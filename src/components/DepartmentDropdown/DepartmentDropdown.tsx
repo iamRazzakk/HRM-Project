@@ -22,7 +22,7 @@ const menuProps = {
 
 const DepartmentDropdown: React.FC = () => (
   <Dropdown menu={menuProps}>
-    <Button>
+    <Button size="large">
       <Space>
         Department
         <DownOutlined />

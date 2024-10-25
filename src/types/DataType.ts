@@ -8,5 +8,5 @@ export interface DataType {
     department: string;
     project: string;
     notes: string;
-    tags: string[];
+    status: "pending" | "approved" | "rejected";
 }

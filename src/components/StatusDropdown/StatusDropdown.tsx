@@ -42,7 +42,7 @@ const menuProps = {
 // Component
 const StatusDropDown: React.FC = () => (
   <Dropdown menu={menuProps}>
-    <Button>
+    <Button size="large">
       <Space>
         Status
         <DownOutlined />
