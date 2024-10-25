@@ -7,7 +7,7 @@ import DateRangeDropdown from "../../../DateRangeDropdown/DateRangeDropdown";
 import StatusDropDown from "../../../StatusDropdown/StatusDropdown";
 import EmployeeActionsModal from "../EmployeeModal/EmployeeActionsModal";
 import { useState } from "react";
-import EmployeeActionButtons from "./EmployeeActionButtons";
+import EmployeeActionButtons from "../ActionButtons/EmployeeActionButtons";
 
 // Sample data
 const initialData: DataType[] = [
@@ -24,13 +24,37 @@ const initialData: DataType[] = [
     status: "pending",
   },
   {
-    key: "#2",
+    key: "#1249",
+    name: "Md Abdur Razzak",
+    duration: "7 hours",
+    startTime: "9:30 AM",
+    endTime: "4:30 PM",
+    dueHours: "7 hours",
+    department: "Development",
+    project: "Project B",
+    notes: "Good work on the recent design.",
+    status: "pending",
+  },
+  {
+    key: "#1250",
     name: "Jane Smith",
     duration: "7 hours",
     startTime: "9:30 AM",
     endTime: "4:30 PM",
     dueHours: "7 hours",
-    department: "Design",
+    department: "Sales",
+    project: "Project B",
+    notes: "Good work on the recent design.",
+    status: "pending",
+  },
+  {
+    key: "#1251",
+    name: "Jane Smith",
+    duration: "7 hours",
+    startTime: "9:30 AM",
+    endTime: "4:30 PM",
+    dueHours: "7 hours",
+    department: "Products",
     project: "Project B",
     notes: "Good work on the recent design.",
     status: "pending",
@@ -104,7 +128,7 @@ const EmployeeTable: React.FC = () => {
         </span>
       ),
       key: "time",
-      render: (text, record) => (
+      render: (_text, record) => (
         <div>
           <span style={{ color: "gray" }}>{record.startTime}</span>
           <span> - </span>
@@ -126,7 +150,40 @@ const EmployeeTable: React.FC = () => {
       ),
       dataIndex: "department",
       key: "department",
-      render: (text) => <span style={{ color: "gray" }}>{text}</span>,
+      render: (text) => {
+        let color = "gray";
+        switch (text) {
+          case "Development":
+            color = "#1E90FF";
+            break;
+          case "Design":
+            color = "#32CD32";
+            break;
+          case "Sales":
+            color = "#800080";
+            break;
+          case "Products":
+            color = "#FFD700";
+            break;
+          default:
+            break;
+        }
+        return (
+          <div className="flex items-center">
+            <span
+              style={{
+                backgroundColor: color,
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                display: "inline-block",
+                marginRight: "8px",
+              }}
+            ></span>
+            <span style={{ color }}>{text}</span>
+          </div>
+        );
+      },
       width: "10%",
     },
     {

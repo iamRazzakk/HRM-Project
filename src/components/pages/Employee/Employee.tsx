@@ -1,5 +1,5 @@
 import { DownloadOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, message, Upload } from "antd";
 import { useState } from "react";
 import { GrGroup } from "react-icons/gr";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
@@ -47,12 +47,24 @@ const Employee = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Button
-            size="large"
-            className="hover:!text-black hover:!border-gray-200 hover:!bg-gray-200 !bg-white"
+          <Upload
+            showUploadList={false}
+            accept=".xls,.xlsx"
+            onChange={(info) => {
+              if (info.file.status === "done") {
+                message.success(`File uploaded: ${info.file.name}`);
+              } else if (info.file.status === "error") {
+                message.error(`File upload failed: ${info.file.name}`);
+              }
+            }}
           >
-            Export Excel <DownloadOutlined />
-          </Button>
+            <Button
+              size="large"
+              className="hover:!text-black hover:!border-gray-200 hover:!bg-gray-200 !bg-white"
+            >
+              Upload Excel <DownloadOutlined />
+            </Button>
+          </Upload>
           <Button size="large" type="primary" onClick={showModal}>
             <MdOutlinePersonAddAlt className="font-bold text-lg" /> Add Employee
           </Button>
