@@ -22,12 +22,12 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/employee-hiring"
+            to="/employees"
             className={({ isActive }) =>
               isActive ? "font-bold text-blue-600" : "text-gray-400"
             }
           >
-            Employee Hiring
+            Employee
           </NavLink>
           <NavLink
             to="/report-files"
@@ -61,14 +61,16 @@ const Navbar = () => {
 
           {/* User Profile */}
           <div className="flex items-center space-x-2 cursor-pointer">
-            <div>
-              <span className="hidden md:block">Sadik Hasan</span>
-              <span>Friday, 29 september</span>
+            <div className="text-right">
+              <span className="hidden font-bold text-lg md:block">
+                Sadik Hasan
+              </span>
+              <span className="text-gray-400">Friday, 29 september</span>
             </div>
             <img
               src={avater}
               alt="User Profile"
-              className="h-8 w-8 rounded-full"
+              className="h-10 w-10 rounded-lg"
             />
           </div>
         </div>
