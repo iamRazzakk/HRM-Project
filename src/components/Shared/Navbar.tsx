@@ -1,6 +1,7 @@
 import { Input } from "antd";
 import { NavLink } from "react-router-dom";
-
+import { SearchOutlined } from "@ant-design/icons";
+import avater from "../../assets/avater.jpg";
 const Navbar = () => {
   return (
     <nav className="bg-white text-gray-950 p-4">
@@ -51,19 +52,24 @@ const Navbar = () => {
           {/* Search Bar */}
           <div className="">
             <Input
-              style={{ width: "100%" }}
-              defaultValue="Search Anything..."
+              size="large"
+              placeholder="Search Anything"
+              style={{ width: "100%", backgroundColor: "transparent" }}
+              prefix={<SearchOutlined style={{ color: "rgba(0,0,0,0.45)" }} />}
             />
           </div>
 
           {/* User Profile */}
           <div className="flex items-center space-x-2 cursor-pointer">
+            <div>
+              <span className="hidden md:block">Sadik Hasan</span>
+              <span>Friday, 29 september</span>
+            </div>
             <img
-              src="/profile.jpg"
+              src={avater}
               alt="User Profile"
               className="h-8 w-8 rounded-full"
             />
-            <span className="hidden md:block">John Doe</span>
           </div>
         </div>
       </div>
