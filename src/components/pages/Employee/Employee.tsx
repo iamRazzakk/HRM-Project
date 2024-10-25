@@ -3,8 +3,9 @@ import { Button } from "antd";
 import { useState } from "react";
 import { GrGroup } from "react-icons/gr";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
-import EmployeeModal from "../../EmployeeModal/EmployeeModal";
+import EmployeeModal from "./EmployeeModal/EmployeeModal";
 import { MenuItemType } from "antd/es/menu/interface";
+import EmployeeTable from "./EmployeeTable/EmployeeTable";
 
 const Employee = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,15 +25,15 @@ const Employee = () => {
   // Department Items
   const departmentItems: MenuItemType[] = [
     { label: "Development", key: "1" },
-    { label: "HRM", key: "2" },
+    { label: "Product", key: "2" },
     { label: "Designer", key: "3" },
+    { label: "Sales", key: "4" },
   ];
 
   // Project Items
   const projectItems: MenuItemType[] = [
-    { label: "Project A", key: "1" },
-    { label: "Project B", key: "2" },
-    { label: "Project C", key: "3" },
+    { label: "CRM Project", key: "1" },
+    { label: "HRM Project", key: "2" },
   ];
 
   return (
@@ -64,6 +65,7 @@ const Employee = () => {
         departmentItems={departmentItems}
         projectItems={projectItems}
       />
+      <EmployeeTable />
     </div>
   );
 };
